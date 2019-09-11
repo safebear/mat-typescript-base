@@ -12,9 +12,14 @@ const chai = require("chai").use(require("chai-as-promised"));
 const expect = chai.expect;
 
 
-Given('a product doesn\'t exist', function (dataTable) {
+Given('a product doesn\'t exist', async function (dataTable) {
     const arrayOfProducts = dataTable.hashes();
 this.product = arrayOfProducts[0];
+
+while (await this.checks.checkForElements(homePage.productsInTable(this.product))) {
+    this.actions.click(homePage.productInTable(this.product));
+    this.actions.click(viewProductPage.deleteButton);
+   }
 
 return expect(this.checks.isElementOnPage(homePage.productInTable(this.product))).to.eventually.be.false;
   });

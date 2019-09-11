@@ -3,8 +3,11 @@ import { $, by, element, ElementFinder } from "protractor";
 export class ViewProductPage {
 
   public productName: (product: myLib.Product) => ElementFinder;
+  public deleteButton: ElementFinder;
 
   constructor() {
+
+    this.deleteButton = $(".mat-flat-button.mat-warn");
 
     /**
      * Used to create the locator for the Product name (it's parameterised as we don't know what product we've created)

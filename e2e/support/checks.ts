@@ -1,4 +1,4 @@
-import { browser, ElementFinder } from "protractor";
+import { browser, ElementFinder, ElementArrayFinder } from "protractor";
 
 export class Checks {
 
@@ -11,4 +11,14 @@ export class Checks {
     public isElementOnPage = async (element: ElementFinder): Promise<boolean> => {
       return await browser.isElementPresent(element);
     }
+
+        /**
+     * Count number of multiple elements onscreen
+     *
+     * @param elements - an ElementArrayFinder of multiple elements
+     * @returns True if there are more than 0 elements on the page, False otherwise
+     */
+    public checkForElements = async (elements: ElementArrayFinder): Promise<boolean> => {
+        return await elements.count() > 0;
+      }
 }
