@@ -22,7 +22,6 @@ export class Actions {
      * @returns Promise <void>
      */
     public click = async (element: ElementFinder): Promise <void> => {
-      await waits.isElementClickable(element);
       return await element.click();
     }
 
@@ -32,7 +31,6 @@ export class Actions {
      * @param element - the element on the webpage you want to type in (e.g. an text field)
      */
     public type = async (element: ElementFinder, text: string): Promise <void> => {
-      await waits.waitForElement(element);
       return await element.sendKeys(text);
     }
 }
