@@ -2,19 +2,9 @@ import { $, by, element, ElementFinder } from "protractor";
 
 export class AddProductPage {
 
-  public productName: ElementFinder;
-  public productDescription: ElementFinder;
-  public productPrice: ElementFinder;
-  public submitButton: ElementFinder;
+  public productName = $("#mat-input-0");
+  public productDescription = $("#mat-input-1");
+  public productPrice = $("#mat-input-2");
+  public submitButton = $("[type=submit]");
 
-  constructor() {
-
-    /**
-     * Elements on the page
-     */
-    this.productName = $("#mat-input-0");
-    this.productDescription = $("#mat-input-1");
-    this.productPrice = $("#mat-input-2");
-    this.submitButton = $("[type=submit]");
-  }
 }
